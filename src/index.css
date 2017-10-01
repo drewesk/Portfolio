@@ -1,5 +1,45 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 2em !important;
+}
+
+html, body {
+  background: #fff;
+}
+
+.body-content {
+  min-height: 400px;
+}
+
+.card-about {
+  min-width: 800px;
+}
+
+.header-wrapper {
+  margin-top: 1em;
+}
+
+.header-image {
+  height: 125px;
+  width: auto;
+  float: left;
+}
+
+.header-name {
+  font-size: 3em !important;
+  margin-left: 20% !important;
+}
+
+.header-segment {
+  display: flex;
+  align-items: flex-end;
+}
+
+.menu-color {
+  justify-content: flex-start;
+  background-color: black;
 }
