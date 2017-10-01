@@ -5,6 +5,8 @@ import {
   Button, Container, Divider, Dropdown, Grid, Header, Icon, Image, List, Menu, Segment, Visibility, Card
 } from 'semantic-ui-react'
 
+import { Contact } from './Contact';
+
 const menuStyle = {
   border: 'none',
   borderRadius: 0,
@@ -53,7 +55,7 @@ const RightImage = () => (
 
 
 const Paragraph = (i) => (
-  <article>
+  <article className='article-wrapper'>
 
     <h2>{['Learning Koa in 2 Weeks', 'The Journey into WebVR', 'MobX for the \'Single Source of Truth\''][i]}</h2>
     <p>
@@ -77,7 +79,6 @@ export class Body extends Component {
     menuFixed: false,
     overlayFixed: false,
     mountProjects: false,
-    mountContact: false,
     mountBlog: true,
     mountGit: false
   }
@@ -85,22 +86,12 @@ export class Body extends Component {
   onMountProjects() {
     this.setState({
       mountProjects: true,
-      mountContact: false,
-      mountBlog: false
-    })
-  }
-
-  onMountContact() {
-    this.setState({
-      mountContact: true,
-      mountProjects: false,
       mountBlog: false
     })
   }
 
   onMountBlog() {
     this.setState({
-      mountContact: false,
       mountProjects: false,
       mountBlog: true
     })
@@ -144,17 +135,23 @@ export class Body extends Component {
 
         <Container className='body-content' text>
 
+          <RightImage />
+
+
           <Card raised='true' className='card-about'>
 
             <Card.Content>
               <Card.Header>About</Card.Header>
               <Card.Description>
-                <RightImage />
-                Strip steak short loin pastrami ham hock flank prosciutto turkey cow venison chicken ground round shank.
-                Ball tip turkey tri-tip, meatball shankle shank andouille porchetta strip steak pork belly salami bacon
-                boudin. Boudin porchetta sirloin venison cow.
               </Card.Description>
+              Strip steak short loin pastrami ham hock flank prosciutto turkey cow venison chicken ground round shank.
+              Ball tip turkey tri-tip, meatball shankle shank andouille porchetta strip steak pork belly salami bacon
+              boudin. Boudin porchetta sirloin venison cow.
             </Card.Content>
+            <Card.Content extra>
+              <Contact />
+            </Card.Content>
+
           </Card>
 
           <Visibility
@@ -174,12 +171,6 @@ export class Body extends Component {
               style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle}
               vertical
             >
-              <a href="https://github.com/drewesk" target='_blank'>
-                <Menu.Item onClick>
-                  <Icon name='github alternate' />
-                  GitHub
-                </Menu.Item>
-              </a>
 
             <Menu.Item onClick={ this.onMountBlog.bind(this) }>
               <Icon name='indent' />
@@ -191,10 +182,10 @@ export class Body extends Component {
                Projects
               </Menu.Item>
 
-              <Menu.Item>
+              {/* <Menu.Item onClick={ this.onMountContact.bind(this) }>
                 <Icon name='mail' />
-               Email
-              </Menu.Item>
+               Contact
+              </Menu.Item> */}
             </Menu>
           </div>
 
@@ -209,10 +200,6 @@ export class Body extends Component {
 
         { (this.state.mountProjects) ?
           <p>This is a list of Projects</p>
-      : ''}
-
-        { (this.state.mountContact) ?
-          <p>This is a contact form</p>
       : ''}
 
         </Container>

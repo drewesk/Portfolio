@@ -11,11 +11,19 @@ html, body {
   background: #fff;
 }
 
+.article-wrapper {
+  margin-top: 4%;
+}
+
 .body-content {
-  min-height: 400px;
+  min-height: 800px;
 }
 
 .card-about {
+  min-width: 450px;
+}
+
+.body-content {
   min-width: 800px;
 }
 
