@@ -7,6 +7,14 @@ import {
 
 import { Contact } from './Contact';
 
+const RightImage = () => (
+  <Image
+    floated='right'
+    size='medium'
+    src='/assets/images/chessman.jpg'
+  />
+)
+
 const menuStyle = {
   border: 'none',
   borderRadius: 0,
@@ -36,7 +44,7 @@ const fixedOverlayStyle = {
 const overlayMenuStyle = {
   position: 'relative',
   left: 0,
-  transition: 'left 0.5s ease',
+  transition: 'left 1.5s ease',
 }
 
 const fixedOverlayMenuStyle = {
@@ -44,31 +52,15 @@ const fixedOverlayMenuStyle = {
   left: '800px',
 }
 
-const RightImage = () => (
-  <Image
-    floated='right'
-    size='medium'
-    src='/assets/images/chessman.jpg'
-    // style={{ margin: '2em -4em 2em 2em' }}
-  />
-)
-
-
 const Paragraph = (i) => (
-  <article className='article-wrapper'>
+  <article key={i} className='article-wrapper'>
 
-    <h2>{['Learning Koa in 2 Weeks', 'The Journey into WebVR', 'MobX for the \'Single Source of Truth\''][i]}</h2>
+    <h2>{['Koa, the Express Train has Left the Station']}</h2>
+    <h4>{['Sun Oct 1st']}</h4>
     <p>
       {[
-        'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ',
-        'tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas ',
-        'semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ',
-        'ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean ',
-        'fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. ',
-        'Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor ',
-        'neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, ',
-        'accumsan porttitor, facilisis luctus, metus',
-      ].join('')}
+        'I finally made the leap of faith and jumped right into Koa, which is more of a blank canvas than Express. No more repetitively typing out req.body or all of the built-in middleware. Async awaits made promises a cinch as well as using Mocha/Chai for some TDD. One of the major advantages is that you can go super light weight. It was also fun introducing Objection.js to automate table joins with Knex.js.',
+      ]}
     </p>
 
   </article>
@@ -83,6 +75,13 @@ export class Body extends Component {
     mountGit: false
   }
 
+  onToggleDark() {
+    document.body.classList.contains('dark-mode') ?
+    document.body.classList.remove('dark-mode')
+    : document.body.classList.add('dark-mode')
+    console.log(document.body);
+  }
+
   onMountProjects() {
     this.setState({
       mountProjects: true,
@@ -94,15 +93,6 @@ export class Body extends Component {
     this.setState({
       mountProjects: false,
       mountBlog: true
-    })
-  }
-
-  onMountGit() {
-    this.setState({
-      mountContact: false,
-      mountProjects: false,
-      mountBlog: false,
-      mountGit: true
     })
   }
 
@@ -126,6 +116,7 @@ export class Body extends Component {
     return (
       <div>
         <Segment className='header-segment' inverted>
+          {/* <Button onClick={ this.onToggleDark.bind(this) }>Dark Mode</Button> */}
           <Container className='header-wrapper' text >
             <Image className='header-image' src='../assets/images/brand.png' />
             <Header className='header-name' as='h1' color='olive'>Andrew Eskenazi</Header>
@@ -137,16 +128,14 @@ export class Body extends Component {
 
           <RightImage />
 
-
-          <Card raised='true' className='card-about'>
+          <Card raised={true} className='card-about'>
 
             <Card.Content>
               <Card.Header>About</Card.Header>
-              <Card.Description>
-              </Card.Description>
-              Strip steak short loin pastrami ham hock flank prosciutto turkey cow venison chicken ground round shank.
-              Ball tip turkey tri-tip, meatball shankle shank andouille porchetta strip steak pork belly salami bacon
-              boudin. Boudin porchetta sirloin venison cow.
+              A software developer with a year and a half of coding experience.
+              I've worked on civic Apps through the Code for America Brigade as well as working on my own projects.
+              Also am obsessed with chess! Have been in a few tournaments as
+              well as 4000+ online blitz games within the last 12 months.
             </Card.Content>
             <Card.Content extra>
               <Contact />
@@ -182,21 +171,13 @@ export class Body extends Component {
                Projects
               </Menu.Item>
 
-              {/* <Menu.Item onClick={ this.onMountContact.bind(this) }>
-                <Icon name='mail' />
-               Contact
-              </Menu.Item> */}
             </Menu>
           </div>
 
-          { (this.state.mountBlog) ? _.times(3, i => {
+          { (this.state.mountBlog) ? _.times(1, i => {
             return Paragraph(i)
           })
         : ''}
-
-        {/* { (this.state.mountGit) ?
-          <iframe src="http://www.github.com/drewesk/" frameBorder="0"></iframe>
-      : ''} */}
 
         { (this.state.mountProjects) ?
           <p>This is a list of Projects</p>

@@ -7,10 +7,10 @@ export class Contact extends Component {
     return (
       <div className="contact-wrapper">
 
-        <a href="https://github.com/drewesk" target='_blank'>
+        <a href="https://github.com/drewesk" rel="noopener noreferrer" target='_blank'>
           <Icon name='github alternate' />
         </a>
-        <a href="https://www.linkedin.com/in/drewesk/" target='_blank'>
+        <a href="https://www.linkedin.com/in/drewesk/" rel="noopener noreferrer" target='_blank'>
           <Icon name='linkedin' />
         </a>
 

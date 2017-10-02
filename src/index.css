@@ -35,11 +35,12 @@ html, body {
   height: 125px;
   width: auto;
   float: left;
+  margin-left: -7%;
 }
 
 .header-name {
   font-size: 3em !important;
-  margin-left: 20% !important;
+  margin-left: 10% !important;
 }
 
 .header-segment {
@@ -50,4 +51,12 @@ html, body {
 .menu-color {
   justify-content: flex-start;
   background-color: black;
+}
+
+/*.dark-mode {
+  background-color: #FFF !important;
+}*/
+
+.dark-mode {
+  background-color: #2d2d2d !important;
 }
