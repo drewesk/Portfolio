@@ -6,6 +6,7 @@ import {
 } from 'semantic-ui-react'
 
 import { Contact } from './Contact';
+import { Projects } from './Projects';
 
 const RightImage = () => (
   <Image
@@ -59,7 +60,7 @@ const Paragraph = (i) => (
     <h4>{['Sun Oct 1st']}</h4>
     <p>
       {[
-        'I finally made the leap of faith and jumped right into Koa, which is more of a blank canvas than Express. No more repetitively typing out req.body or all of the built-in middleware. Async awaits made promises a cinch as well as using Mocha/Chai for some TDD. One of the major advantages is that you can go super light weight. It was also fun introducing Objection.js to automate table joins with Knex.js.',
+        'I finally made the leap of faith and jumped right into Koa, which is more of a blank canvas than Express. No more repetitively typing out req.body or all of the built-in middleware. Async awaits made promises a cinch as well as using Mocha/Chai for some TDD. One of the major advantages is that you can go super light weight. It was also fun introducing Objection.js to manage table joins.',
       ]}
     </p>
 
@@ -70,8 +71,8 @@ export class Body extends Component {
   state = {
     menuFixed: false,
     overlayFixed: false,
-    mountProjects: false,
-    mountBlog: true,
+    mountProjects: true,
+    mountBlog: false,
     mountGit: false
   }
 
@@ -161,15 +162,15 @@ export class Body extends Component {
               vertical
             >
 
+            <Menu.Item onClick={ this.onMountProjects.bind(this) }>
+              <Icon name='unhide' />
+              Projects
+            </Menu.Item>
+
             <Menu.Item onClick={ this.onMountBlog.bind(this) }>
               <Icon name='indent' />
               Articles
             </Menu.Item>
-
-              <Menu.Item onClick={ this.onMountProjects.bind(this) }>
-                <Icon name='unhide' />
-               Projects
-              </Menu.Item>
 
             </Menu>
           </div>
@@ -180,7 +181,7 @@ export class Body extends Component {
         : ''}
 
         { (this.state.mountProjects) ?
-          <p>This is a list of Projects</p>
+          <Projects />
       : ''}
 
         </Container>
