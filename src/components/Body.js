@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import _ from 'lodash'
 import {
-  Button, Container, Divider, Dropdown, Grid, Header, Icon, Image, List, Menu, Segment, Visibility, Card
+  Button, Container, Divider, Dropdown, Grid, Header, Icon, Image, List, Segment, Visibility, Card, Menu
 } from 'semantic-ui-react'
 
 import { Contact } from './Contact';
@@ -133,10 +133,11 @@ export class Body extends Component {
 
             <Card.Content>
               <Card.Header>About</Card.Header>
-              A software developer with a year and a half of coding experience.
-              I've worked on civic Apps through the Code for America Brigade as well as working on my own projects.
-              Also am obsessed with chess! Have been in a few tournaments as
-              well as 4000+ online blitz games within the last 12 months.
+              My experience ranges from working on
+              civic Apps through the Code for America Brigade
+              as well as building my own projects.
+              Tinkering around and writing self-documenting code is what I'm most passionate about.
+              Also super obsessed with chess! Have been in a few tournaments as well as 7500+ online games over the past few years.
             </Card.Content>
             <Card.Content extra>
               <Contact />
