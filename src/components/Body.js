@@ -7,6 +7,8 @@ import {
 
 import { Contact } from './Contact';
 import { Projects } from './Projects';
+import { GridTest } from './GridTest';
+
 
 const RightImage = () => (
   <Image
@@ -184,6 +186,7 @@ export class Body extends Component {
         { (this.state.mountProjects) ?
           <Projects />
       : ''}
+              <GridTest/>  
 
         </Container>
 

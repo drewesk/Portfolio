@@ -11,6 +11,9 @@ html, body {
   background: #fff;
 }
 
+.projects-card {
+}
+
 .article-wrapper {
   margin-top: 4%;
 }
@@ -21,6 +24,14 @@ html, body {
 
 .card-about {
   min-width: 450px;
+}
+
+.card-left {
+  float: left;
+}
+
+.card-right {
+  float: right;
 }
 
 .body-content {
@@ -52,10 +63,6 @@ html, body {
   justify-content: flex-start;
   background-color: black;
 }
-
-/*.dark-mode {
-  background-color: #FFF !important;
-}*/
 
 .dark-mode {
   background-color: #2d2d2d !important;
