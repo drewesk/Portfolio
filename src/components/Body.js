@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 import _ from 'lodash'
 import {
-  Button, Container, Divider, Dropdown, Grid, Header, Icon, Image, List, Segment, Visibility, Card, Menu
+  Container, Divider, Header, Icon, Image, Segment, Visibility, Card, Menu
 } from 'semantic-ui-react'
 
 import { Contact } from './Contact';
 import { Projects } from './Projects';
-import { GridTest } from './GridTest';
+// import { GridTest } from './GridTest';
 
 
 const RightImage = () => (
@@ -17,20 +17,6 @@ const RightImage = () => (
     src='/assets/images/chessman.jpg'
   />
 )
-
-const menuStyle = {
-  border: 'none',
-  borderRadius: 0,
-  boxShadow: 'none',
-  marginBottom: '1em',
-  marginTop: '4em',
-  transition: 'box-shadow 0.5s ease, padding 0.5s ease',
-}
-
-const fixedMenuStyle = {
-  backgroundColor: 'black',
-  boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)',
-}
 
 const overlayStyle = {
   float: 'left',
@@ -114,7 +100,7 @@ export class Body extends Component {
   unStickTopMenu = () => this.setState({ menuFixed: false })
 
   render() {
-    const { menuFixed, overlayFixed, overlayRect } = this.state
+    const { overlayFixed, overlayRect } = this.state
 
     return (
       <div>
@@ -132,19 +118,19 @@ export class Body extends Component {
           <RightImage />
 
           <Card raised={true} className='card-about'>
-
-            <Card.Content>
-              <Card.Header>About</Card.Header>
-              My experience ranges from working on
-              civic Apps through the Code for America Brigade
-              as well as building my own projects.
-              Tinkering around and writing self-documenting code is what I'm most passionate about.
-              Also super obsessed with chess! Have been in a few tournaments as well as 7500+ online games over the past few years.
-            </Card.Content>
-            <Card.Content extra>
-              <Contact />
-            </Card.Content>
-
+            <Segment inverted>
+              <Card.Content>
+                <Card.Header>About</Card.Header>
+                My experience ranges from working on
+                civic Apps through the Code for America Brigade
+                as well as building my own projects.
+                Tinkering around and writing self-documenting code is what I'm most passionate about.
+                Also super obsessed with chess! Have been in a few tournaments as well as 7500+ online games over the past few years.
+              </Card.Content>
+              <Card.Content extra>
+                <Contact />
+              </Card.Content>
+            </Segment>
           </Card>
 
           <Visibility
@@ -163,6 +149,7 @@ export class Body extends Component {
               icon='labeled'
               style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle}
               vertical
+              inverted
             >
 
             <Menu.Item onClick={ this.onMountProjects.bind(this) }>
@@ -186,13 +173,13 @@ export class Body extends Component {
         { (this.state.mountProjects) ?
           <Projects />
       : ''}
-              <GridTest/>  
+              {/* <GridTest/> */}
 
         </Container>
 
         <Segment
           inverted
-          style={{ margin: '5em 0em 0em', padding: '5em 0em' }}
+          style={{ margin: '5em 0em 0em', padding: '5em 0em', marginTop: '20%' }}
           vertical
         >
           <Container textAlign='center'>

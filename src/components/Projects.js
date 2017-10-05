@@ -27,6 +27,11 @@ export class Projects extends Component {
 
           <Header as='h3'>Frontend</Header>
 
+          <Label size='medium' color='blue'>React/MobX</Label>
+          <Label size='medium' color='orange'>ES2015-17</Label>
+          <Label size='medium' color='teal'>HTML5</Label>
+          <Label size='medium' color='red'>CSS</Label>
+
           <Header as='h3'>Backend</Header>
 
           <Label size='medium' color='blue'>Node.js</Label>
