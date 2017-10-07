@@ -6,9 +6,9 @@ import {
 } from 'semantic-ui-react'
 
 import { Contact } from './Contact';
+import ContactForm from './ContactForm';
 import { Projects } from './Projects';
 // import { GridTest } from './GridTest';
-
 
 const RightImage = () => (
   <Image
@@ -41,26 +41,11 @@ const fixedOverlayMenuStyle = {
   left: '800px',
 }
 
-const Paragraph = (i) => (
-  <article key={i} className='article-wrapper'>
-
-    <h2>{['Koa, the Express Train has Left the Station']}</h2>
-    <h4>{['Sun Oct 1st']}</h4>
-    <p>
-      {[
-        'I finally made the leap of faith and jumped right into Koa, which is more of a blank canvas than Express. No more repetitively typing out req.body or all of the built-in middleware. Async awaits made promises a cinch as well as using Mocha/Chai for some TDD. One of the major advantages is that you can go super light weight. It was also fun introducing Objection.js to manage table joins.',
-      ]}
-    </p>
-
-  </article>
-)
-
 export class Body extends Component {
   state = {
     menuFixed: false,
     overlayFixed: false,
     mountProjects: true,
-    mountBlog: false,
     mountGit: false
   }
 
@@ -78,12 +63,12 @@ export class Body extends Component {
     })
   }
 
-  onMountBlog() {
-    this.setState({
-      mountProjects: false,
-      mountBlog: true
-    })
-  }
+  // onMountBlog() {
+  //   this.setState({
+  //     mountProjects: false,
+  //     mountBlog: true
+  //   })
+  // }
 
   handleOverlayRef = (c) => {
     const { overlayRect } = this.state
@@ -128,7 +113,6 @@ export class Body extends Component {
                 Also super obsessed with chess! Have been in a few tournaments as well as 7500+ online games over the past few years.
               </Card.Content>
               <Card.Content extra>
-                <Contact />
               </Card.Content>
             </Segment>
           </Card>
@@ -157,21 +141,25 @@ export class Body extends Component {
               Projects
             </Menu.Item>
 
-            <Menu.Item onClick={ this.onMountBlog.bind(this) }>
+            {/* <Menu.Item onClick={ this.onMountBlog.bind(this) }>
               <Icon name='indent' />
               Articles
-            </Menu.Item>
+            </Menu.Item> */}
 
             </Menu>
           </div>
 
-          { (this.state.mountBlog) ? _.times(1, i => {
+          {/* { (this.state.mountBlog) ? _.times(1, i => {
             return Paragraph(i)
           })
-        : ''}
+        : ''} */}
 
         { (this.state.mountProjects) ?
+        <span>
           <Projects />
+          <Contact />
+          <ContactForm />
+        </span>
       : ''}
               {/* <GridTest/> */}
 
