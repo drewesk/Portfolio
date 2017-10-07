@@ -6,7 +6,6 @@ import {
 } from 'semantic-ui-react'
 
 import { Contact } from './Contact';
-import ContactForm from './ContactForm';
 import { Projects } from './Projects';
 // import { GridTest } from './GridTest';
 
@@ -158,7 +157,6 @@ export class Body extends Component {
         <span>
           <Projects />
           <Contact />
-          <ContactForm />
         </span>
       : ''}
               {/* <GridTest/> */}
