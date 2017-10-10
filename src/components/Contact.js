@@ -3,9 +3,11 @@ import Mailto from 'react-mailto.js';
 import {Card, Segment, Icon, Form, Input, Button, Header, Divider} from 'semantic-ui-react';
 
 import { observable } from 'mobx';
+import { observer } from 'mobx-react';
 
 import { postMessage } from '../axios/requests';
 
+@observer
 export class Contact extends Component {
   @observable offMount = false;
   @observable requestBody = {
@@ -31,12 +33,11 @@ export class Contact extends Component {
       } else {
         reqBody[prop] = this.requestBody[prop];
       }
-      this.offMount = true;
     }
 
     postMessage(reqBody).then((response) => {
-      // console.log(response);
-
+      console.log(response);
+      this.offMount = true;
     });
 
   }
