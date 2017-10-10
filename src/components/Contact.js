@@ -2,7 +2,45 @@ import React, { Component } from 'react';
 import Mailto from 'react-mailto.js';
 import {Card, Segment, Icon, Form, Input, Button, Header, Divider} from 'semantic-ui-react';
 
+import { observable } from 'mobx';
+
+import { postMessage } from '../axios/requests';
+
 export class Contact extends Component {
+  @observable offMount = false;
+  @observable requestBody = {
+    name: '',
+    contact: '',
+    body: ''
+  }
+
+  onHandleInput(event){
+    const target = event.target;
+    const name = target.id;
+
+    this.requestBody[name] = target.value;
+  }
+
+  onSubmitForm() {
+    const reqBody = {};
+
+    for(let prop in this.requestBody) {
+      if (this.requestBody[prop] === '') {
+        alert('Please fill out all items.');
+        return false
+      } else {
+        reqBody[prop] = this.requestBody[prop];
+      }
+      this.offMount = true;
+    }
+
+    postMessage(reqBody).then((response) => {
+      // console.log(response);
+
+    });
+
+  }
+
   render() {
     return (
       <Card>
@@ -27,12 +65,27 @@ export class Contact extends Component {
         >
           <Icon name='mail outline'/>
         </Mailto>
+
+
+        {(this.offMount === false) ?
         <Form inverted>
-          <Form.Field id="form-input-control-first-name" control={Input} label='Name' placeholder='Name'/>
-          <Form.Field id="form-input-control-last-name" control={Input} label='Contact Info' placeholder='Contact Info'/>
-          <Form.Field id="form-input-control-opinion" control={Input} label='Message' placeholder='write me a poem... or a simple message'/>
-          <Form.Field id="form-input-control-opinion" control={Button} content='Send It Through the Interwebs!' color='olive'/>
+          <Form.Field id="name" control={Input} label='Name' placeholder='Name'
+            onChange={(event) => {
+                 this.onHandleInput(event)
+               }} />
+          <Form.Field id="contact" control={Input} label='Contact Info' placeholder='Contact Info'
+            onChange={(event) => {
+                 this.onHandleInput(event)
+               }} />
+          <Form.Field id="body" control={Input} label='Message' placeholder='write me a poem... or a simple message'
+            onChange={(event) => {
+                 this.onHandleInput(event)
+               }} />
+          <Form.Field id="form-input-control-opinion" control={Button} content='Send It Through the Interwebs!' color='olive'
+            onClick={ this.onSubmitForm.bind(this) }/>
+
         </Form>
+        : (<p>Success!</p>) }
       </Segment>
       </Card>
     );

@@ -135,9 +135,9 @@ export class Body extends Component {
               inverted
             >
 
-            <Menu.Item onClick={ this.onMountProjects.bind(this) }>
-              <Icon name='unhide' />
-              Projects
+            <Menu.Item>
+              <Icon name='bicycle' />
+              <Divider></Divider>
             </Menu.Item>
 
             {/* <Menu.Item onClick={ this.onMountBlog.bind(this) }>
