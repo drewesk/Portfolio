@@ -26,3 +26,5 @@ yarn.lock
 source.json
 
 axios/
+
+public/

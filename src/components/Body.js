@@ -7,7 +7,7 @@ import {
 
 import { Contact } from './Contact';
 import { Projects } from './Projects';
-// import { GridTest } from './GridTest';
+import { Explorer } from './Explorer';
 
 const RightImage = () => (
   <Image
@@ -103,15 +103,17 @@ export class Body extends Component {
 
           <Card raised={true} className='card-about'>
             <Segment inverted>
+              <Header as='h3'>About</Header>
+
               <Card.Content>
-                <Card.Header>About</Card.Header>
                 My experience ranges from working on
-                civic Apps through the Code for America Brigade
-                as well as building my own projects.
-                Tinkering around and writing self-documenting code is what I'm most passionate about.
-                Also super obsessed with chess! Have been in a few tournaments as well as 7500+ online games over the past few years.
+                Civic Apps through the Code for America Brigade
+                as well as my own projects.
+                Tinkering around and writing self-documenting code is what I'm passionate about most.
+                Also obsessed with chess. Have been in a few tournaments as well as 8000+ online games over the past few years.
               </Card.Content>
               <Card.Content extra>
+                <a href="https://youtu.be/iRrQVx4E4iA?t=30m57s">Capstone Presentation</a>
               </Card.Content>
             </Segment>
           </Card>
@@ -137,7 +139,9 @@ export class Body extends Component {
 
             <Menu.Item>
               <Icon name='bicycle' />
-              <Divider></Divider>
+              {/* <Divider></Divider> */}
+              <Icon name='code' />
+              <Icon name='arrow down' />
             </Menu.Item>
 
             {/* <Menu.Item onClick={ this.onMountBlog.bind(this) }>
@@ -157,6 +161,7 @@ export class Body extends Component {
         <span>
           <Projects />
           <Contact />
+          <Explorer />
         </span>
       : ''}
               {/* <GridTest/> */}

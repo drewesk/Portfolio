@@ -47,7 +47,7 @@ export class Projects extends Component {
 
           <Header as='h3'>testing</Header>
 
-          <Label size='medium' color='grey'>Mocha</Label>
+          <Label size='medium' color='pink'>Mocha</Label>
           <Label size='medium' color='olive'>Chai</Label>
           <Label size='medium' color='brown'>RSpec</Label>
           <Label size='medium' color='red'>Nightwatch.js</Label>
