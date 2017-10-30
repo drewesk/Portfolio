@@ -28,3 +28,6 @@ source.json
 axios/
 
 public/
+
+src/components/Explorer.js
+src/components/Contact.js

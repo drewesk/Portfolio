@@ -49,7 +49,7 @@ export class Contact extends Component {
           <Header as='h1'>Contact</Header>
           <Divider inverted section />
           <a href="https://github.com/drewesk" rel="noopener noreferrer" target='_blank'>
-          <Icon name='github alternate' />
+          <Icon name='github alternate' size='huge'/>
         </a>
         <a href="https://www.linkedin.com/in/drewesk/" rel="noopener noreferrer" target='_blank'>
         <Icon name='linkedin' />
@@ -60,12 +60,12 @@ export class Contact extends Component {
         to='DrewEsk@gmail.com'
         subject="Contact"
         body={[
-          "Hello,",
-
+          "Hello Andrew,",
+          "Was just on your website.. "
         ].join('\n')}
         >
           <Icon name='mail outline'/>
-        </Mailto>
+      </Mailto>
 
 
         {(this.offMount === false) ?

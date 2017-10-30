@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 
 import _ from 'lodash'
 import {
-  Container, Divider, Header, Icon, Image, Segment, Visibility, Card, Menu
+  Container, Divider, Header, Icon, Image, Segment, Visibility, Card, Menu, Button
 } from 'semantic-ui-react'
 
 import { Contact } from './Contact';
 import { Projects } from './Projects';
-import { Explorer } from './Explorer';
 
 const RightImage = () => (
   <Image
@@ -161,12 +160,38 @@ export class Body extends Component {
         <span>
           <Projects />
           <Contact />
-          <Explorer />
+          <Card raised={true}>
+            <Segment inverted>
+              <Header as='h1'>Invaders</Header>
+              <Divider inverted section />
+              <Button.Group>
+                <a href="javascript:termOpen()" className="termopen">
+                <Button color='olive' inverted>
+                  Open
+                </Button>
+              </a>
+                <Button.Or text='&&' />
+              <a href="javascript:test('invaders')" className="termopen">
+                <Button color='teal' inverted>
+                  Play
+                </Button>
+              </a>
+              </Button.Group>
+            </Segment>
+          </Card>
+
+          <Card raised={true} className='terminal-card'>
+            <Segment inverted>
+              <Header as='h1'>Terminal</Header>
+              <Divider inverted section />
+              <div id="termDiv" ></div>
+            </Segment>
+          </Card>
         </span>
       : ''}
-              {/* <GridTest/> */}
-
         </Container>
+
+
 
         <Segment
           inverted
