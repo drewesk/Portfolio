@@ -43,8 +43,8 @@ export class Body extends Component {
   state = {
     menuFixed: false,
     overlayFixed: false,
-    mountProjects: true,
-    mountGit: false
+    mountGit: false,
+    mountTerm: false
   }
 
   onToggleDark() {
@@ -54,11 +54,10 @@ export class Body extends Component {
     console.log(document.body);
   }
 
-  onMountProjects() {
+  openTerm(){
     this.setState({
-      mountProjects: true,
-      mountBlog: false
-    })
+      mountTerm: true
+    });
   }
 
   // onMountBlog() {
@@ -156,7 +155,6 @@ export class Body extends Component {
           })
         : ''} */}
 
-        { (this.state.mountProjects) ?
         <span>
           <Projects />
           <Contact />
@@ -166,11 +164,11 @@ export class Body extends Component {
               <Divider inverted section />
               <Button.Group>
                 <a href="javascript:termOpen()" className="termopen">
-                <Button color='olive' inverted>
-                  Open
+                <Button color='olive' onClick={ this.openTerm.bind(this) } inverted>
+                  Open Terminal
                 </Button>
               </a>
-                <Button.Or text='&&' />
+                <Button.Or text='and' />
               <a href="javascript:test('invaders')" className="termopen">
                 <Button color='teal' inverted>
                   Play
@@ -179,23 +177,24 @@ export class Body extends Component {
               </Button.Group>
             </Segment>
           </Card>
-
-          <Card raised={true} className='terminal-card'>
-            <Segment inverted>
-              <Header as='h1'>Terminal</Header>
-              <Divider inverted section />
-              <div id="termDiv" ></div>
-            </Segment>
-          </Card>
+          {(this.state.mountTerm) ?
+            (<Card raised={true} className='terminal-card'>
+              <Segment inverted>
+                <Divider inverted section />
+                <div id="termDiv" ></div>
+              </Segment>
+            </Card>)
+            :
+            ''
+          }
         </span>
-      : ''}
         </Container>
 
 
 
         <Segment
           inverted
-          style={{ margin: '5em 0em 0em', padding: '5em 0em', marginTop: '20%' }}
+          style={{ margin: '5em 0em 0em', padding: '5em 0em', marginBottom: '-20%' }}
           vertical
         >
           <Container textAlign='center'>
