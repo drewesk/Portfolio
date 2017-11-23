@@ -44,7 +44,8 @@ export class Body extends Component {
     menuFixed: false,
     overlayFixed: false,
     mountGit: false,
-    mountTerm: false
+    mountTerm: false,
+    rotate: 'group-body'
   }
 
   onToggleDark() {
@@ -60,12 +61,10 @@ export class Body extends Component {
     });
   }
 
-  // onMountBlog() {
-  //   this.setState({
-  //     mountProjects: false,
-  //     mountBlog: true
-  //   })
-  // }
+  toggleViewOn(){
+    let css = (this.props.showHideSidenav === "group-body") ? "view-on" : "group-body";
+    this.setState({"showHideSidenav":css});
+  }
 
   handleOverlayRef = (c) => {
     const { overlayRect } = this.state
@@ -94,7 +93,7 @@ export class Body extends Component {
           </Container>
         </Segment>
 
-
+        <Button onClick={this.toggleViewOn.bind(this)}>side view</Button>
         <Container className='body-content' text>
 
           <RightImage />
@@ -104,11 +103,9 @@ export class Body extends Component {
               <Header as='h3'>About</Header>
 
               <Card.Content>
-                My experience ranges from working on
-                Civic Apps through the Code for America Brigade
-                as well as my own projects.
                 Tinkering around and writing self-documenting code is what I'm passionate about most.
-                Also obsessed with chess. Have been in a few tournaments as well as 8000+ online games over the past few years.
+                My time is currently occupied with
+                building Civic Apps through the Code for America Brigade and remote contracts as well.
               </Card.Content>
               <Card.Content extra>
                 <a href="https://youtu.be/iRrQVx4E4iA?t=30m57s">Capstone Presentation</a>
@@ -155,7 +152,7 @@ export class Body extends Component {
           })
         : ''} */}
 
-        <span>
+        <span className={ this.state.rotate }>
           <Projects />
           <Contact />
           <Card raised={true}>
@@ -178,7 +175,7 @@ export class Body extends Component {
             </Segment>
           </Card>
           {(this.state.mountTerm) ?
-            (<Card raised={true} className='terminal-card'>
+            (<Card raised={true} className='terminal-card rotate-terminal'>
               <Segment inverted>
                 <Divider inverted section />
                 <div id="termDiv" ></div>
