@@ -86,20 +86,19 @@ export class Body extends Component {
     return (
       <div>
         <Segment className='header-segment' inverted>
-          {/* <Button onClick={ this.onToggleDark.bind(this) }>Dark Mode</Button> */}
           <Container className='header-wrapper' text >
             <Image className='header-image' src='../assets/images/brand.png' />
             <Header className='header-name' as='h1' color='olive'>Andrew Eskenazi</Header>
           </Container>
         </Segment>
 
-        <Button onClick={this.toggleViewOn.bind(this)}>side view</Button>
         <Container className='body-content' text>
 
           <RightImage />
 
           <Card raised={true} className='card-about'>
             <Segment inverted>
+              <Image src='https://www.codewars.com/users/drewesk/badges/large' />
               <Header as='h3'>About</Header>
 
               <Card.Content>
@@ -133,7 +132,7 @@ export class Body extends Component {
             >
 
             <Menu.Item>
-              <Icon name='bicycle' />
+              <Icon name='game' />
               {/* <Divider></Divider> */}
               <Icon name='code' />
               <Icon name='arrow down' />
@@ -161,13 +160,13 @@ export class Body extends Component {
               <Divider inverted section />
               <Button.Group>
                 <a href="javascript:termOpen()" className="termopen">
-                <Button color='olive' onClick={ this.openTerm.bind(this) } inverted>
+                <Button color='red' size='massive' onClick={ this.openTerm.bind(this) } inverted>
                   Open Terminal
                 </Button>
               </a>
                 <Button.Or text='and' />
               <a href="javascript:test('invaders')" className="termopen">
-                <Button color='teal' inverted>
+                <Button color='teal' inverted size='huge'>
                   Play
                 </Button>
               </a>
@@ -175,7 +174,7 @@ export class Body extends Component {
             </Segment>
           </Card>
           {(this.state.mountTerm) ?
-            (<Card raised={true} className='terminal-card rotate-terminal'>
+            (<Card raised={true} className='terminal-card term-invade'>
               <Segment inverted>
                 <Divider inverted section />
                 <div id="termDiv" ></div>

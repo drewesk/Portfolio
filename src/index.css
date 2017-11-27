@@ -106,9 +106,12 @@ a.termopen {
 	text-decoration: none;
 }
 
-
-
 .dimmed,.dimmed *,.dimmed * * {
 	background-color: #222222 !important;
 	color: #333333 !important;
+}
+
+.term-invade:hover {
+  transform: scale(1.2);
+  transition: transform 3s;
 }
