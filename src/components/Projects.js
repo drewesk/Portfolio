@@ -24,7 +24,6 @@ export class Projects extends Component {
             <Header as='h1'>Skills</Header>
             <Divider inverted section />
 
-
           <Header as='h3'>Frontend</Header>
 
           <Label size='medium' color='blue'>React/MobX</Label>
