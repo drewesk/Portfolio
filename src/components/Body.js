@@ -48,12 +48,12 @@ export class Body extends Component {
     rotate: 'group-body'
   }
 
-  onToggleDark() {
-    document.body.classList.contains('dark-mode') ?
-    document.body.classList.remove('dark-mode')
-    : document.body.classList.add('dark-mode')
-    console.log(document.body);
-  }
+  // onToggleDark() {
+  //   document.body.classList.contains('dark-mode') ?
+  //   document.body.classList.remove('dark-mode')
+  //   : document.body.classList.add('dark-mode')
+  //   console.log(document.body);
+  // }
 
   openTerm(){
     this.setState({
@@ -98,13 +98,14 @@ export class Body extends Component {
 
           <Card raised={true} className='card-about'>
             <Segment inverted>
+              <Header as='h4'>CodeWars: </Header>
               <Image src='https://www.codewars.com/users/drewesk/badges/large' />
               <Header as='h3'>About</Header>
 
               <Card.Content>
                 Tinkering around and writing self-documenting code is what I'm passionate about most.
                 My time is currently occupied with
-                building Civic Apps through the Code for America Brigade and remote contracts as well.
+                building Civic Apps, fiddling with micro-controllers, and playing a mean game of Chess.
               </Card.Content>
               <Card.Content extra>
                 <a href="https://youtu.be/iRrQVx4E4iA?t=30m57s">Capstone Presentation</a>
@@ -160,7 +161,7 @@ export class Body extends Component {
               <Divider inverted section />
               <Button.Group>
                 <a href="javascript:termOpen()" className="termopen">
-                <Button color='red' size='massive' onClick={ this.openTerm.bind(this) } inverted>
+                <Button color='red' size='massive' onClick={ this.openTerm.bind(this) }>
                   Open Terminal
                 </Button>
               </a>
@@ -195,7 +196,7 @@ export class Body extends Component {
         >
           <Container textAlign='center'>
             <Divider inverted section />
-            &copy; 2017 Andrew Eskenazi
+            &copy; 2018 Andrew Eskenazi
           </Container>
         </Segment>
       </div>

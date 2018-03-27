@@ -10,10 +10,10 @@ export class Projects extends Component {
             <Header as='h1'>Projects</Header>
             <Divider inverted section />
             <List>
-              <List.Item icon='bullseye' content={<a href='https://chessexp-c4173.firebaseapp.com/'>ChessEXP</a>} />
-              <List.Item icon='bullseye' content={<a href='http://main.betaclimb.rocks/'>BetaClimb Desktop</a>} />
-              <List.Item icon='bullseye' content={<a href='http://betaclimb.rocks/'>BetaClimb Native (iOS, Android)</a>} />
               <List.Item icon='bullseye' content={<a href='https://dialoc-e341d.firebaseapp.com/'>DIALOC</a>} />
+              <List.Item icon='bullseye' content={<a href='http://main.betaclimb.rocks/'>BetaClimb Desktop</a>} />
+              <List.Item icon='bullseye' content={<a href='http://betaclimb.rocks/'>BetaClimb Native (www.BetaClimb.rocks for iOS, Android)</a>} />
+              <List.Item icon='bullseye' content={<a href='https://chessexp-c4173.firebaseapp.com/'>ChessEXP</a>} />
               <List.Item icon='bullseye' content={<a href='https://chess-x.herokuapp.com/'>ChessX</a>} />
             </List>
           </Segment>
@@ -42,8 +42,7 @@ export class Projects extends Component {
           <Label size='medium' color='green'>MongoDB</Label>
           <Label size='medium' color='violet'>Ruby</Label>
           <Label size='medium' color='purple'>RoR</Label>
-          <Label size='medium' color='blue'>Java</Label>
-          <Label size='medium' color='pink'>C#</Label>
+          <Label size='medium' color='pink'>C++</Label>
 
           <Header as='h3'>testing</Header>
 
