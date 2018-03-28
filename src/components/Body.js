@@ -8,6 +8,8 @@ import {
 import { Contact } from './Contact';
 import { Projects } from './Projects';
 
+const baseURL = 'https://AndrewEskenazi.com/'
+
 const RightImage = () => (
   <Image
     floated='right'
@@ -54,6 +56,12 @@ export class Body extends Component {
   //   : document.body.classList.add('dark-mode')
   //   console.log(document.body);
   // }
+
+  componentDidMount() {
+    if(window.location.protocol !== "https:") {
+      window.location.href = baseURL;
+    }
+  }
 
   openTerm(){
     this.setState({
